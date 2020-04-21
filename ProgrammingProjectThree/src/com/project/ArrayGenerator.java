@@ -1,5 +1,9 @@
 package com.project;
-
+/**
+ * @Authors: Jorge Jimenez, Pauline Makoma, Christian Makoma, Austin Duran
+ * @Project Programming Project3
+ * @Course CSIS-2430
+ */
 import java.util.ArrayList;
 import java.util.List;
 

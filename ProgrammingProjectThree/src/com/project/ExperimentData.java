@@ -1,5 +1,9 @@
 package com.project;
-
+/**
+ * @Authors: Jorge Jimenez, Pauline Makoma, Christian Makoma, Austin Duran
+ * @Project Programming Project3
+ * @Course CSIS-2430
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
@@ -55,7 +59,7 @@ public class ExperimentData {
 	        // subsets one by one 
 	        for (int i = 0; i < (1<<n); i++) 
 	        { 
-//	            System.out.print("{ "); 
+
 	        	templist = new ArrayList<>();
 	            // Print current subset 
 	            for (int j = 0; j < n; j++) 
