@@ -43,7 +43,8 @@ public class KnapSack {
 
     KnapSack(int maxWeight, ExperimentData weight, ExperimentData rate, ExperimentData lambda){
         this.maxWeight = maxWeight;
-        System.out.println("Rate Sort");
+     
+        
         getRate(rate);
         System.out.println("\nSubset of experiment by Rate"); 
     	for(Experiment ex: knapSackByRate) {
@@ -52,7 +53,7 @@ public class KnapSack {
     	
     	totals(knapSackByRate);
     	 
-        System.out.println("\n\n\nWeight Sort");
+    	
         getWeight(weight);
         System.out.println("\nSubset of experiment by weight"); 
       	for(Experiment ex: knapSackByWeight) {
@@ -61,21 +62,19 @@ public class KnapSack {
       	
       	totals(knapSackByWeight);
       	
-        System.out.println("\n\n\nLamda Sort");
+
         getLambda(lambda);
         System.out.println("\nSubset of experiment by Lambda"); 
     	for(Experiment ex: knapSackByLambda) {
     		System.out.println(ex);
     	}
         
-//    	totals(knapSackByRate);
     	totals(knapSackByLambda);
 
     }
 
     private void getWeight(ExperimentData weight) {
         Collections.sort(weight.experiments, orderByWeight);
-        weight.experiments.forEach((n) -> System.out.println(n));
 
         for(int i = 0; weightCounter <= maxWeight; i++){
             weightCounter += weight.experiments.get(i).getWeight();
@@ -90,7 +89,7 @@ public class KnapSack {
     private void getRate(ExperimentData rate) {
 
         Collections.sort(rate.experiments, orderByRate);
-        rate.experiments.forEach((n) -> System.out.println(n));
+       
 
         for(int i = 0; weightCounter <= maxWeight; i++){
             weightCounter += rate.experiments.get(i).getWeight();
@@ -104,7 +103,7 @@ public class KnapSack {
     private void getLambda(ExperimentData lambda) {
 
         Collections.sort(lambda.experiments, orderByLambda);
-        lambda.experiments.forEach((n) -> System.out.println(n));
+
 
         for(int i = 0; weightCounter <= maxWeight; i++){
             weightCounter += lambda.experiments.peek().getWeight();
@@ -117,6 +116,7 @@ public class KnapSack {
         weightCounter -= lambda.experiments.peek().getWeight();
         Collections.sort(lambda.experiments, orderByWeight);
        
+         
         for(int i = 0; weightCounter <= maxWeight; i++){
             weightCounter += lambda.experiments.peek().getWeight();
             if(weightCounter <= maxWeight){
@@ -124,8 +124,7 @@ public class KnapSack {
             }
         }
         
-        
-        
+
         weightCounter = 0;
     }
 
@@ -138,12 +137,10 @@ public class KnapSack {
     		lambda += ex.getLambda();
     		rate += ex.getRate();
     	}
-    	System.out.printf("Weight: %.2f, Lambda: %.2f, rate: %d", weight, lambda, rate);
+    	System.out.printf("Weight: %.2f, Lambda: %.2f, rate: %d\n\n", weight, lambda, rate);
     	
     	
     }
     
     
-
-
 }

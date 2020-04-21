@@ -42,24 +42,7 @@ public class ExperimentData {
       expList = new ArrayList();  
       expList.addAll(experiments);
       
-      printSubsets(expList);
-      System.out.println(permutations.size());
-      greatestPayLoad();
-      KnapSack.totals(greatestPayLoad().subset);
-      
-//        permutations.add(one);
-//        permutations.add(two);
-//        permutations.add(three);
-//        permutations.add(four);
-//        permutations.add(five);
-//        permutations.add(six);
-//        permutations.add(seven);
-//        permutations.add(eight);
-//        permutations.add(nine);
-//        permutations.add(ten);
-//        permutations.add(eleven);
-//        permutations.add(twelve);
-
+     
     }
     
 
@@ -84,23 +67,23 @@ public class ExperimentData {
 	                // are not 
 	                if ((i & (1 << j)) > 0) 
 	                {	
-	                	
 	                	templist.add(experiments.get(j));
-	              
-	                	
+	
 	                }
 	            		temp = new PayLoad(templist);
 	            	if (temp != null && validatePayloads(temp))
 	            		permutations.add(new PayLoad(templist));
-//	                    System.out.print(experiments.get(y) + " "); 
-	  
-//	            System.out.println("}"); 
+
 	        } 
 	    } 
     
-//    public ArrayList getList() {
-//        return permutations;
-//    }
+    public void getPermutations() {
+    	printSubsets(expList);
+    	
+        greatestPayLoad().subset.forEach((n) -> System.out.println(n)); 
+        KnapSack.totals(greatestPayLoad().subset);
+        
+    }
 	 
 	 public boolean validatePayloads(PayLoad p) {
 		 return p.weight <= 700;
@@ -108,7 +91,8 @@ public class ExperimentData {
 	 
 	 public PayLoad greatestPayLoad() {
 		Collections.sort(permutations);
-		permutations.get(0).subset.forEach((n) -> System.out.println(n)); 
 		return permutations.get(0);
 	 }
+	 
+	 
 }
